@@ -18,20 +18,43 @@ class Character {
             "Connection to Investigation:  " + investigation_connection;
         this.family = "Familial Connections:  " + family;
     }
+    get info() {
+        return this.show();
+    }
+    show() {
+        return (
+            this.name +
+            "<br>" +
+            this.occupation +
+            "<br>" +
+            this.special_interest +
+            "<br>" +
+            this.laura_connection +
+            "<br>" +
+            this.investigation_connection +
+            "<br>" +
+            this.family +
+            "<br>"
+        );
+    }
 }
 
-//search bar
-/*const searchBar = $("#body").append("<input id='searchBar' type='text' placeholder='Search'>");
-searchBar.on("keyup", () => {
-    console.log('yatta');
-});*/
+const searchBar = $("#body").append("<input id='searchBar'>");
+$("#searchBar").attr("type", "text");
+$("#body").append("<ul id='main-ul'></ul>");
+$("#main-ul").before($("ul"));
 
-//Creating <ul>
-$("#body").html("<ul id='main-list'></ul>");
+$("#searchBar").on("keyup", () => {
+    for (let i = 0; i < Character.length; i++) {
+        if ($("#searchBar").val() === "laura") {
+            console.log("yatta");
+        }
+    }
+});
 
 //Function to add <li> to <ul>
 function print(name) {
-    $("#main-list").html("<li>" + name.name + "<br>" + name.occupation + name.special_interest + "<br>" + name.laura_connection + "<br>" + name.investigation_connection + "<br>" + name.family + "</li>" + "<br>");
+    $("#main-ul").html("<li>" + name + "</li>");
 }
 
 //Character variables
@@ -44,6 +67,8 @@ const laura = new Character(
     "Leland Palmer, Maddy Ferguson, "
 );
 $("#laura-pic").hide();
+//Print function syntax
+print(laura.info);
 const donna = new Character(
     "Donna Hayward",
     "Student, Meals on Wheels delivery person",
