@@ -66,9 +66,11 @@ const laura = new Character(
     "Victim; letter 'R' found under her fingernail",
     "Leland Palmer, Maddy Ferguson, "
 );
-$("#laura-pic").hide();
+
+//$("#laura-pic").hide();
 //Print function syntax
 print(laura.info);
+
 const donna = new Character(
     "Donna Hayward",
     "Student, Meals on Wheels delivery person",
